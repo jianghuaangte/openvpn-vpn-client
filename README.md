@@ -28,7 +28,7 @@ networks:
           gateway: "172.20.0.1"
 
 services:
-  vpn-client:
+  openvpn-client:
     image: freedomzzz/openvpn-vpn-client:latest
     container_name: openvpn-vpn-client
     privileged: true

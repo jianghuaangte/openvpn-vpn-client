@@ -10,7 +10,7 @@ RUN apk update && apk upgrade openssl libcrypto3 libssl3 && apk add --no-cache \
     && rm -rf /var/cache/apk/*
 
 # 创建目录
-mkdir -p /etc/openvpn/client
+RUN mkdir -p /etc/openvpn/client
 
 # 复制入口脚本
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh

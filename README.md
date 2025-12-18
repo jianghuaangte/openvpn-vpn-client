@@ -25,8 +25,8 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: "172.20.0.0/24"
-          gateway: "172.20.0.1"
+        - subnet: "172.21.0.0/24"
+          gateway: "172.21.0.1"
 
 services:
   openvpn-client:
@@ -43,7 +43,7 @@ services:
  #      - "./nginx/conf.d:/etc/nginx/conf.d"   # Nginx 配置文件（可选）
     networks:
       ovpn-network:
-        ipv4_address: 172.20.0.10
+        ipv4_address: 172.21.0.10
     restart: unless-stopped
 ```
 

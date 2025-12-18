@@ -20,7 +20,7 @@ passwd
 version: '3.8'
 
 networks:
-  vpn-network:
+  ovpn-network:
     driver: bridge
     ipam:
       config:
@@ -41,7 +41,7 @@ services:
        - "/path/to/dir:/etc/openvpn/client"    # 配置文件及用户/密码
  #      - "./nginx/conf.d:/etc/nginx/conf.d"   # Nginx 配置文件（可选）
     networks:
-      vpn-network:
+      ovpn-network:
         ipv4_address: 172.20.0.10
     restart: unless-stopped
 ```

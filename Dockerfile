@@ -6,6 +6,7 @@ RUN apk update && apk upgrade openssl libcrypto3 libssl3 && apk add --no-cache \
     net-tools \
     nginx \
     nginx-mod-stream \
+    socat \
     curl \
     neovim \
     && rm -rf /var/cache/apk/*

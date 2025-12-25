@@ -7,7 +7,7 @@
 |配置文件|说明|
 |:---|:---|
 |client.ovpn|客户端配置文件|
-|user-psswd.txt|用户名/密码|
+|user-passwd.txt|用户名/密码|
 |socat-cmd.sh|socat 转发|
 
 user-psswd.txt 内容，一行一个

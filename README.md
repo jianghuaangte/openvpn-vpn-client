@@ -8,6 +8,7 @@
 |:---|:---|
 |client.ovpn|客户端配置文件|
 |user-psswd.txt|用户名/密码|
+|socat-cmd.sh|socat 转发|
 
 user-psswd.txt 内容，一行一个
 ```txt
@@ -37,9 +38,10 @@ services:
       - NET_ADMIN
     environment:
       - NGINX_ENABLE=0     # 设为1启用 Nginx
+      - SOCAT_ENABLE=0     # 设为1启用 Socat
     volumes:
        - "/lib/modules:/lib/modules:ro"
-       - "/path/to/dir:/etc/openvpn/client"    # 配置文件及用户/密码
+       - "/path/to/dir:/etc/openvpn/client"    # 配置文件及用户/密码/socat
  #      - "./nginx/conf.d:/etc/nginx/conf.d"   # Nginx 配置文件（可选）
     networks:
       ovpn-network:
@@ -59,4 +61,10 @@ push "dhcp-option DNS 8.8.8.8"
 ```shell
 ip route add 128.0.0.0/1 via 10.7.7.1 dev tunx
 ip route add 0.0.0.0/1 via 10.7.7.1 dev tunx
+```
+
+**Socat 服务**
+例子：
+```shell
+socat TCP-LISTEN:20170,fork,reuseaddr TCP:172.21.0.30:20170 &
 ```
